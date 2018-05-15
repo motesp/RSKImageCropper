@@ -34,6 +34,7 @@
 		B8D73A871B9B1E73003AFA4A /* RSKInternalUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D73A861B9B1E73003AFA4A /* RSKInternalUtility.m */; };
 		B8F617661AE43CEF00499402 /* RSKImageCropperPerformanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F617651AE43CEF00499402 /* RSKImageCropperPerformanceTests.m */; };
 		B8F617681AE4468000499402 /* RSKImageScrollViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F617671AE4468000499402 /* RSKImageScrollViewTests.m */; };
+		FBEFEDC420A57D6B00638CBE /* FaceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEFEDC320A57D6B00638CBE /* FaceDetector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		B8D73A861B9B1E73003AFA4A /* RSKInternalUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSKInternalUtility.m; sourceTree = "<group>"; };
 		B8F617651AE43CEF00499402 /* RSKImageCropperPerformanceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSKImageCropperPerformanceTests.m; sourceTree = "<group>"; };
 		B8F617671AE4468000499402 /* RSKImageScrollViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSKImageScrollViewTests.m; sourceTree = "<group>"; };
+		FBEFEDC220A57D6A00638CBE /* RSKImageCropperExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSKImageCropperExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		FBEFEDC320A57D6B00638CBE /* FaceDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,8 @@
 			children = (
 				B87A9A1E19A4D31100D12CD4 /* RSKExampleViewController.h */,
 				B87A9A1F19A4D31100D12CD4 /* RSKExampleViewController.m */,
+				FBEFEDC320A57D6B00638CBE /* FaceDetector.swift */,
+				FBEFEDC220A57D6A00638CBE /* RSKImageCropperExample-Bridging-Header.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -308,10 +313,12 @@
 				ORGANIZATIONNAME = "Ruslan Skorb";
 				TargetAttributes = {
 					B87A99EB19A4D2CD00D12CD4 = {
-						DevelopmentTeam = J3P7YV7464;
+						DevelopmentTeam = QB3CC8XVUK;
+						LastSwiftMigration = 0930;
+						ProvisioningStyle = Automatic;
 					};
 					B87A9A0619A4D2CD00D12CD4 = {
-						DevelopmentTeam = J3P7YV7464;
+						DevelopmentTeam = QB3CC8XVUK;
 						TestTargetID = B87A99EB19A4D2CD00D12CD4;
 					};
 				};
@@ -387,6 +394,7 @@
 				B87A9A2E19A4D39800D12CD4 /* RSKTouchView.m in Sources */,
 				B87A9A2019A4D31100D12CD4 /* RSKExampleViewController.m in Sources */,
 				B87A9A2F19A4D39800D12CD4 /* UIImage+RSKImageCropper.m in Sources */,
+				FBEFEDC420A57D6B00638CBE /* FaceDetector.swift in Sources */,
 				B87A99FC19A4D2CD00D12CD4 /* main.m in Sources */,
 				B8D73A871B9B1E73003AFA4A /* RSKInternalUtility.m in Sources */,
 				B87A9A2D19A4D39800D12CD4 /* RSKImageCropViewController.m in Sources */,
@@ -551,12 +559,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = J3P7YV7464;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QB3CC8XVUK;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RSKImageCropperExample/RSKImageCropperExample-Prefix.pch";
 				INFOPLIST_FILE = "RSKImageCropperExample/RSKImageCropperExample-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ruslanskorb.${PRODUCT_NAME:rfc1034identifier}";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ruslanskorb.--PRODUCT-NAME-rfc1034identifier--com.ruslanskorb.--PRODUCT-NAME-rfc1034identifier-";
 				PRODUCT_NAME = RSKImageCropperExample;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "RSKImageCropperExample/RSKImageCropperExample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -567,12 +585,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = J3P7YV7464;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QB3CC8XVUK;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RSKImageCropperExample/RSKImageCropperExample-Prefix.pch";
 				INFOPLIST_FILE = "RSKImageCropperExample/RSKImageCropperExample-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ruslanskorb.${PRODUCT_NAME:rfc1034identifier}";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ruslanskorb.--PRODUCT-NAME-rfc1034identifier--com.ruslanskorb.--PRODUCT-NAME-rfc1034identifier-";
 				PRODUCT_NAME = RSKImageCropperExample;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "RSKImageCropperExample/RSKImageCropperExample-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -582,8 +609,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C150E48F85DA51945C85DA1 /* Pods-RSKImageCropperExampleTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RSKImageCropperExample.app/RSKImageCropperExample";
-				DEVELOPMENT_TEAM = J3P7YV7464;
+				DEVELOPMENT_TEAM = QB3CC8XVUK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -606,8 +634,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 920CDB33366A5C7417CF0915 /* Pods-RSKImageCropperExampleTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RSKImageCropperExample.app/RSKImageCropperExample";
-				DEVELOPMENT_TEAM = J3P7YV7464;
+				DEVELOPMENT_TEAM = QB3CC8XVUK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
