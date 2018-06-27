@@ -21,13 +21,13 @@
 		A5BE39E41B32BD2B00ECDF88 /* UIApplication+RSKImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BE39D61B32BD2B00ECDF88 /* UIApplication+RSKImageCropper.m */; };
 		A5BE39E51B32BD2B00ECDF88 /* UIImage+RSKImageCropper.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BE39D71B32BD2B00ECDF88 /* UIImage+RSKImageCropper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5BE39E61B32BD2B00ECDF88 /* UIImage+RSKImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BE39D81B32BD2B00ECDF88 /* UIImage+RSKImageCropper.m */; };
-		A98F7E8A20E3959D0008E264 /* RSKImageCropper-bridging-header.h in Headers */ = {isa = PBXBuildFile; fileRef = A98F7E8420E3959D0008E264 /* RSKImageCropper-bridging-header.h */; };
-		A98F7E8B20E3959D0008E264 /* ImageCropperOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98F7E8520E3959D0008E264 /* ImageCropperOverlay.xib */; };
-		A98F7E8C20E3959D0008E264 /* ImageCropperConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F7E8620E3959D0008E264 /* ImageCropperConfiguration.swift */; };
-		A98F7E8D20E3959D0008E264 /* ImageCropperOverlayHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F7E8720E3959D0008E264 /* ImageCropperOverlayHeadView.swift */; };
-		A98F7E8E20E3959D0008E264 /* ImageCropperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F7E8820E3959D0008E264 /* ImageCropperViewController.swift */; };
-		A98F7E8F20E3959D0008E264 /* ImageCropperOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F7E8920E3959D0008E264 /* ImageCropperOverlayViewController.swift */; };
-		A98F7E9320E396670008E264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98F7E9220E396670008E264 /* Assets.xcassets */; };
+		A98F7ED720E3BB720008E264 /* FaceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F7ECF20E3BB720008E264 /* FaceDetector.swift */; };
+		A98F7ED820E3BB720008E264 /* ImageCropperOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98F7ED020E3BB720008E264 /* ImageCropperOverlay.xib */; };
+		A98F7ED920E3BB720008E264 /* ImageCropperConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F7ED120E3BB720008E264 /* ImageCropperConfiguration.swift */; };
+		A98F7EDA20E3BB720008E264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98F7ED220E3BB720008E264 /* Assets.xcassets */; };
+		A98F7EDB20E3BB720008E264 /* ImageCropperOverlayHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F7ED320E3BB720008E264 /* ImageCropperOverlayHeadView.swift */; };
+		A98F7EDC20E3BB720008E264 /* ImageCropperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F7ED420E3BB720008E264 /* ImageCropperViewController.swift */; };
+		A98F7EDD20E3BB720008E264 /* ImageCropperOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F7ED520E3BB720008E264 /* ImageCropperOverlayViewController.swift */; };
 		B02D70CE1BD5DCE200B51B33 /* RSKInternalUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = B02D70CB1BD5DCE200B51B33 /* RSKInternalUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B02D70CF1BD5DCE200B51B33 /* RSKInternalUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B02D70CC1BD5DCE200B51B33 /* RSKInternalUtility.m */; };
 		B8585B951BD609A100032364 /* RSKImageCropperStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8585B941BD609A100032364 /* RSKImageCropperStrings.bundle */; };
@@ -49,13 +49,13 @@
 		A5BE39D61B32BD2B00ECDF88 /* UIApplication+RSKImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+RSKImageCropper.m"; path = "RSKImageCropper/UIApplication+RSKImageCropper.m"; sourceTree = "<group>"; };
 		A5BE39D71B32BD2B00ECDF88 /* UIImage+RSKImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+RSKImageCropper.h"; path = "RSKImageCropper/UIImage+RSKImageCropper.h"; sourceTree = "<group>"; };
 		A5BE39D81B32BD2B00ECDF88 /* UIImage+RSKImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RSKImageCropper.m"; path = "RSKImageCropper/UIImage+RSKImageCropper.m"; sourceTree = "<group>"; };
-		A98F7E8420E3959D0008E264 /* RSKImageCropper-bridging-header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RSKImageCropper-bridging-header.h"; sourceTree = "<group>"; };
-		A98F7E8520E3959D0008E264 /* ImageCropperOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCropperOverlay.xib; sourceTree = "<group>"; };
-		A98F7E8620E3959D0008E264 /* ImageCropperConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropperConfiguration.swift; sourceTree = "<group>"; };
-		A98F7E8720E3959D0008E264 /* ImageCropperOverlayHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropperOverlayHeadView.swift; sourceTree = "<group>"; };
-		A98F7E8820E3959D0008E264 /* ImageCropperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropperViewController.swift; sourceTree = "<group>"; };
-		A98F7E8920E3959D0008E264 /* ImageCropperOverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropperOverlayViewController.swift; sourceTree = "<group>"; };
-		A98F7E9220E396670008E264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A98F7ECF20E3BB720008E264 /* FaceDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDetector.swift; sourceTree = "<group>"; };
+		A98F7ED020E3BB720008E264 /* ImageCropperOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCropperOverlay.xib; sourceTree = "<group>"; };
+		A98F7ED120E3BB720008E264 /* ImageCropperConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropperConfiguration.swift; sourceTree = "<group>"; };
+		A98F7ED220E3BB720008E264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A98F7ED320E3BB720008E264 /* ImageCropperOverlayHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropperOverlayHeadView.swift; sourceTree = "<group>"; };
+		A98F7ED420E3BB720008E264 /* ImageCropperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropperViewController.swift; sourceTree = "<group>"; };
+		A98F7ED520E3BB720008E264 /* ImageCropperOverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropperOverlayViewController.swift; sourceTree = "<group>"; };
 		B02D70CB1BD5DCE200B51B33 /* RSKInternalUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSKInternalUtility.h; path = RSKImageCropper/RSKInternalUtility.h; sourceTree = "<group>"; };
 		B02D70CC1BD5DCE200B51B33 /* RSKInternalUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSKInternalUtility.m; path = RSKImageCropper/RSKInternalUtility.m; sourceTree = "<group>"; };
 		B8585B941BD609A100032364 /* RSKImageCropperStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = RSKImageCropperStrings.bundle; path = RSKImageCropper/RSKImageCropperStrings.bundle; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		A5BE39331B32B49D00ECDF88 = {
 			isa = PBXGroup;
 			children = (
-				A98F7E8320E3959D0008E264 /* Motesplatsen */,
+				A98F7ECD20E3BB720008E264 /* Motesplatsen */,
 				A5BE39AD1B32BAAC00ECDF88 /* RSKImageCropper */,
 				A5BE393E1B32B49D00ECDF88 /* Products */,
 			);
@@ -123,16 +123,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A98F7E8320E3959D0008E264 /* Motesplatsen */ = {
+		A98F7ECD20E3BB720008E264 /* Motesplatsen */ = {
 			isa = PBXGroup;
 			children = (
-				A98F7E9220E396670008E264 /* Assets.xcassets */,
-				A98F7E8420E3959D0008E264 /* RSKImageCropper-bridging-header.h */,
-				A98F7E8520E3959D0008E264 /* ImageCropperOverlay.xib */,
-				A98F7E8620E3959D0008E264 /* ImageCropperConfiguration.swift */,
-				A98F7E8720E3959D0008E264 /* ImageCropperOverlayHeadView.swift */,
-				A98F7E8820E3959D0008E264 /* ImageCropperViewController.swift */,
-				A98F7E8920E3959D0008E264 /* ImageCropperOverlayViewController.swift */,
+				A98F7ECF20E3BB720008E264 /* FaceDetector.swift */,
+				A98F7ED020E3BB720008E264 /* ImageCropperOverlay.xib */,
+				A98F7ED120E3BB720008E264 /* ImageCropperConfiguration.swift */,
+				A98F7ED220E3BB720008E264 /* Assets.xcassets */,
+				A98F7ED320E3BB720008E264 /* ImageCropperOverlayHeadView.swift */,
+				A98F7ED420E3BB720008E264 /* ImageCropperViewController.swift */,
+				A98F7ED520E3BB720008E264 /* ImageCropperOverlayViewController.swift */,
 			);
 			path = Motesplatsen;
 			sourceTree = "<group>";
@@ -152,7 +152,6 @@
 				A5BE39E11B32BD2B00ECDF88 /* RSKTouchView.h in Headers */,
 				B02D70CE1BD5DCE200B51B33 /* RSKInternalUtility.h in Headers */,
 				A5BE39E31B32BD2B00ECDF88 /* UIApplication+RSKImageCropper.h in Headers */,
-				A98F7E8A20E3959D0008E264 /* RSKImageCropper-bridging-header.h in Headers */,
 				A5BE39DA1B32BD2B00ECDF88 /* CGGeometry+RSKImageCropper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +187,7 @@
 				TargetAttributes = {
 					A5BE393C1B32B49D00ECDF88 = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0930;
 					};
 				};
 			};
@@ -213,8 +213,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A98F7E8B20E3959D0008E264 /* ImageCropperOverlay.xib in Resources */,
-				A98F7E9320E396670008E264 /* Assets.xcassets in Resources */,
+				A98F7ED820E3BB720008E264 /* ImageCropperOverlay.xib in Resources */,
+				A98F7EDA20E3BB720008E264 /* Assets.xcassets in Resources */,
 				B8585B951BD609A100032364 /* RSKImageCropperStrings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,16 +226,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A98F7E8C20E3959D0008E264 /* ImageCropperConfiguration.swift in Sources */,
 				A5BE39E41B32BD2B00ECDF88 /* UIApplication+RSKImageCropper.m in Sources */,
+				A98F7EDD20E3BB720008E264 /* ImageCropperOverlayViewController.swift in Sources */,
+				A98F7EDB20E3BB720008E264 /* ImageCropperOverlayHeadView.swift in Sources */,
 				A5BE39E01B32BD2B00ECDF88 /* RSKImageScrollView.m in Sources */,
-				A98F7E8D20E3959D0008E264 /* ImageCropperOverlayHeadView.swift in Sources */,
+				A98F7ED920E3BB720008E264 /* ImageCropperConfiguration.swift in Sources */,
 				A5BE39DB1B32BD2B00ECDF88 /* CGGeometry+RSKImageCropper.m in Sources */,
 				B02D70CF1BD5DCE200B51B33 /* RSKInternalUtility.m in Sources */,
-				A98F7E8F20E3959D0008E264 /* ImageCropperOverlayViewController.swift in Sources */,
-				A98F7E8E20E3959D0008E264 /* ImageCropperViewController.swift in Sources */,
 				A5BE39DD1B32BD2B00ECDF88 /* RSKImageCropViewController.m in Sources */,
 				A5BE39E61B32BD2B00ECDF88 /* UIImage+RSKImageCropper.m in Sources */,
+				A98F7ED720E3BB720008E264 /* FaceDetector.swift in Sources */,
+				A98F7EDC20E3BB720008E264 /* ImageCropperViewController.swift in Sources */,
 				A5BE39E21B32BD2B00ECDF88 /* RSKTouchView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +352,9 @@
 		A5BE39541B32B49D00ECDF88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 2.1.0;
@@ -364,6 +368,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ruslanskorb.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = RSKImageCropper;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -371,6 +376,9 @@
 		A5BE39551B32B49D00ECDF88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 2.1.0;

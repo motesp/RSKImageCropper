@@ -48,6 +48,7 @@
 #import <Foundation/Foundation.h>
 
 #import "RSKImageScrollView.h"
+//#import "RSKImageCropper-Swift.h"
 
 #pragma mark -
 

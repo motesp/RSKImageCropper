@@ -9,28 +9,25 @@
 import Foundation
 import UIKit
 
-protocol ImageCropperViewControllerDelegate: class{
+public protocol ImageCropperViewControllerDelegate: class{
     func didComplete(image: UIImage)
 }
 
-class ImageCropperViewController: RSKImageCropViewController{
+public class ImageCropperViewController: RSKImageCropViewController{
     
     deinit {
         
     }
     
-    weak var cropperDelegate: ImageCropperViewControllerDelegate?
+    public weak var cropperDelegate: ImageCropperViewControllerDelegate?
     
-    weak var customCancelButton: UIButton!
-    weak var customChooseButton: UIButton!
+    private weak var customCancelButton: UIButton!
+    private weak var customChooseButton: UIButton!
+    private var zoomRect: CGRect = .zero
+    private weak var overlayViewController: ImageCropperOverlayViewController?
+    private  var configuration: ImageCropperConfiguration?
     
-    var zoomRect: CGRect = .zero
-    
-    fileprivate weak var overlayViewController: ImageCropperOverlayViewController?
-    
-    var configuration: ImageCropperConfiguration?
-    
-    public func setup(configuration: ImageCropperConfiguration){
+    @objc public func setup(configuration: ImageCropperConfiguration){
         self.configuration = configuration
         
         self.applyMaskToCroppedImage = true
@@ -97,24 +94,24 @@ class ImageCropperViewController: RSKImageCropViewController{
         }
     }
     
-    @objc func customCancelButtonPressed(){
+    @objc private func customCancelButtonPressed(){
         self.cancelCrop()
     }
     
-    @objc func customChooseButtonPressed(){        
+    @objc private func customChooseButtonPressed(){
         self.configuration?.actionBeforeCroping?({ [weak self] in
             self?.cropImage()
         })
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
         self.dataSource = self
         self.clearControlsThatWeDontWantTo()
     }
     
-    fileprivate func clearControlsThatWeDontWantTo(){
+    private func clearControlsThatWeDontWantTo(){
         self.moveAndScaleLabel.text = ""
         self.cancelButton.isUserInteractionEnabled = false
         self.cancelButton.setTitle("", for: .normal)
@@ -122,7 +119,7 @@ class ImageCropperViewController: RSKImageCropViewController{
         self.chooseButton.setTitle("", for: .normal)
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+    override public var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         return .portrait
     }
 }
@@ -164,14 +161,14 @@ extension ImageCropperViewController: RSKImageCropViewControllerDelegate{
 
 extension ImageCropperViewController: RSKImageCropViewControllerDataSource{
     
-    func imageCropViewControllerCustomMaskRect(_ controller: RSKImageCropViewController) -> CGRect {
+    public func imageCropViewControllerCustomMaskRect(_ controller: RSKImageCropViewController) -> CGRect {
         if let frame = self.overlayViewController?.rectangleView.frame{
             return frame.insetBy(dx: 1, dy: 1).integral
         }
         return CGRect.zero
     }
     
-    func imageCropViewControllerCustomMaskPath(_ controller: RSKImageCropViewController) -> UIBezierPath {
+    public func imageCropViewControllerCustomMaskPath(_ controller: RSKImageCropViewController) -> UIBezierPath {
 
         let rect = controller.maskRect
         let point1 = CGPoint(x: rect.minX,y: rect.maxY)
@@ -190,7 +187,7 @@ extension ImageCropperViewController: RSKImageCropViewControllerDataSource{
         return triangle
     }
     
-    func imageCropViewControllerCustomMovementRect(_ controller: RSKImageCropViewController) -> CGRect {
+    public func imageCropViewControllerCustomMovementRect(_ controller: RSKImageCropViewController) -> CGRect {
         return controller.maskRect
     }
 }

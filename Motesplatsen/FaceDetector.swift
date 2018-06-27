@@ -11,19 +11,19 @@ import UIKit
 import Vision
 
 @available(iOS 11.0, *)
-class FaceDetector: NSObject {
+public class FaceDetector: NSObject {
 
-    var completionHandler: (CGRect)->()
-    var image: UIImage
+    private var completionHandler: (CGRect)->()
+    private var image: UIImage
     
-    @objc init(image: UIImage, faceDetectedHandler:@escaping (CGRect)->()) {
+    @objc public init(image: UIImage, faceDetectedHandler:@escaping (CGRect)->()) {
         self.completionHandler = faceDetectedHandler
         self.image = image
 
         super.init()
     }
     
-    @objc func detectFace() {
+    @objc public func detectFace() {
         let orientation = CGImagePropertyOrientation(self.image.imageOrientation)
         let faceLandmarksRequest = VNDetectFaceLandmarksRequest(completionHandler: self.handleFaceFeatures)
         let requestHandler = VNImageRequestHandler(cgImage: self.image.cgImage!, orientation: orientation ,options: [:])
@@ -35,7 +35,7 @@ class FaceDetector: NSObject {
         }
     }
 
-    @objc func handleFaceFeatures(request: VNRequest, errror: Error?) {
+    @objc private func handleFaceFeatures(request: VNRequest, errror: Error?) {
         guard let observations = request.results as? [VNFaceObservation] else {
             debugPrint("Face detection failed")
             return
@@ -63,7 +63,7 @@ class FaceDetector: NSObject {
 }
 
 extension CGImagePropertyOrientation {
-    init(_ uiOrientation: UIImageOrientation) {
+    fileprivate init(_ uiOrientation: UIImageOrientation) {
         switch uiOrientation {
         case .up: self = .up
         case .upMirrored: self = .upMirrored

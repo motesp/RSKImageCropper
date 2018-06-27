@@ -61,7 +61,6 @@
 		920CDB33366A5C7417CF0915 /* Pods-RSKImageCropperExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSKImageCropperExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSKImageCropperExampleTests/Pods-RSKImageCropperExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		A98F7E7F20E285760008E264 /* MPExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPExampleViewController.swift; sourceTree = "<group>"; };
 		A98F7E9420E39FAC0008E264 /* RSKImageCropperExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSKImageCropperExample-Bridging-Header.h"; sourceTree = "<group>"; };
-		A98F7E9820E3A31E0008E264 /* RSKImageCropper-Bridging-header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RSKImageCropper-Bridging-header.h"; sourceTree = "<group>"; };
 		A98F7E9920E3A31E0008E264 /* FaceDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDetector.swift; sourceTree = "<group>"; };
 		A98F7E9A20E3A31E0008E264 /* ImageCropperOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCropperOverlay.xib; sourceTree = "<group>"; };
 		A98F7E9B20E3A31E0008E264 /* ImageCropperConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropperConfiguration.swift; sourceTree = "<group>"; };
@@ -148,7 +147,6 @@
 		A98F7E9720E3A31E0008E264 /* Motesplatsen */ = {
 			isa = PBXGroup;
 			children = (
-				A98F7E9820E3A31E0008E264 /* RSKImageCropper-Bridging-header.h */,
 				A98F7E9920E3A31E0008E264 /* FaceDetector.swift */,
 				A98F7E9A20E3A31E0008E264 /* ImageCropperOverlay.xib */,
 				A98F7E9B20E3A31E0008E264 /* ImageCropperConfiguration.swift */,

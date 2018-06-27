@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-enum ButtonsPosition {
+@objc public enum ButtonsPosition: Int {
     case top
     case bottom
 }
 
-struct ImageCropperConfiguration {
+@objc public class ImageCropperConfiguration: NSObject {
     var title: String?
     var subtitle: String?
     var titleFont: UIFont?

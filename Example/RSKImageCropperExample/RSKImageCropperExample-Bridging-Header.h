@@ -9,6 +9,6 @@
 #ifndef RSKImageCropperExample_Bridging_Header_h
 #define RSKImageCropperExample_Bridging_Header_h
 
-#import "../../Motesplatsen/RSKImageCropper-Bridging-header.h"
+#import "RSKImageCropper.h"
 
 #endif /* RSKImageCropperExample_Bridging_Header_h */

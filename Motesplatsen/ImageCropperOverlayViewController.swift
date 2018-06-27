@@ -49,6 +49,7 @@ class ImageCropperOverlayViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
         let blurSubviews = self.blurView.subviews
         for index in 0..<blurSubviews.count {
