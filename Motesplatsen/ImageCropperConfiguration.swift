@@ -15,16 +15,16 @@ import UIKit
 }
 
 @objc public class ImageCropperConfiguration: NSObject {
-    var title: String?
-    var subtitle: String?
-    var titleFont: UIFont?
-    var subtitleFont: UIFont?
-    var cancelButtonTitle: String?
-    var approveButtonTitle: String?
-    var buttonsFont: UIFont?
-    var drawsOval: Bool = false
-    var actionBeforeCroping: ((() -> Void) -> Void)?
-    var buttonsPosition: ButtonsPosition = .top
-    var buttonsHorizontalOffset: CGFloat = 30
-    var buttonsVerticalOffset: CGFloat = 30
+    public var title: String?
+    public var subtitle: String?
+    public var titleFont: UIFont?
+    public var subtitleFont: UIFont?
+    public var cancelButtonTitle: String?
+    public var approveButtonTitle: String?
+    public var buttonsFont: UIFont?
+    public var drawsOval: Bool = false
+    public var actionBeforeCroping: ((() -> Void) -> Void)?
+    public var buttonsPosition: ButtonsPosition = .top
+    public var buttonsHorizontalOffset: CGFloat = 30
+    public var buttonsVerticalOffset: CGFloat = 30
 }
