@@ -27,4 +27,5 @@ import UIKit
     public var buttonsPosition: ButtonsPosition = .top
     public var buttonsHorizontalOffset: CGFloat = 30
     public var buttonsVerticalOffset: CGFloat = 30
+    public var tutorialHidden = true
 }

@@ -21,6 +21,8 @@ class ImageCropperOverlayViewController: UIViewController {
     @IBOutlet weak var headView: ImageCropperOverlayHeadView!
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
+    @IBOutlet weak var tutorialStackView: UIStackView!
+    
     
     func setup(configuration: ImageCropperConfiguration){
         self.view.setNeedsLayout()
@@ -41,6 +43,8 @@ class ImageCropperOverlayViewController: UIViewController {
         self.bottomLabel.text = configuration.subtitle
         self.bottomLabel.font = configuration.subtitleFont
         self.bottomLabel.alpha = 0.6
+        
+        self.tutorialStackView.isHidden = configuration.tutorialHidden
     }
     
     override func viewDidLoad() {
