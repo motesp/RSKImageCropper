@@ -24,6 +24,7 @@
 
 #import "RSKAppDelegate.h"
 #import "RSKExampleViewController.h"
+#import "RSKImageCropperExample-Swift.h"
 
 @implementation RSKAppDelegate
 
@@ -31,7 +32,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    RSKExampleViewController *sampleVC = [[RSKExampleViewController alloc] init];
+    UIViewController *sampleVC = [[RSKExampleViewController alloc] init];
+    //UIViewController *sampleVC = [[MPExampleViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:sampleVC];
     self.window.rootViewController = navController;
     

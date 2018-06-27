@@ -11,23 +11,23 @@ import UIKit
 import Vision
 
 @available(iOS 11.0, *)
-@objc class FaceDetector: NSObject {
+class FaceDetector: NSObject {
 
     var completionHandler: (CGRect)->()
-    var image: UIImage
+    var image: UIImage!
     
-    init(image:UIImage, faceDetectedHandler:@escaping (CGRect)->()) {
+    @objc init(image: UIImage, faceDetectedHandler:@escaping (CGRect)->()) {
         self.completionHandler = faceDetectedHandler
         self.image = image
 
         super.init()
     }
     
-    func detectFace() {
+    @objc func detectFace() {
         let orientation = CGImagePropertyOrientation(self.image.imageOrientation)
         let faceLandmarksRequest = VNDetectFaceLandmarksRequest(completionHandler: self.handleFaceFeatures)
         let requestHandler = VNImageRequestHandler(cgImage: self.image.cgImage!, orientation: orientation ,options: [:])
-        
+
         do {
             try requestHandler.perform([faceLandmarksRequest])
         } catch {
@@ -35,7 +35,7 @@ import Vision
         }
     }
 
-    func handleFaceFeatures(request: VNRequest, errror: Error?) {
+    @objc func handleFaceFeatures(request: VNRequest, errror: Error?) {
         guard let observations = request.results as? [VNFaceObservation] else {
             debugPrint("Face detection failed")
             return
