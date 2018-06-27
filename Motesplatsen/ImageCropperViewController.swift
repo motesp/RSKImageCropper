@@ -20,10 +20,10 @@ public class ImageCropperViewController: RSKImageCropViewController{
     }
     
     public weak var cropperDelegate: ImageCropperViewControllerDelegate?
+    public var zoomRect: CGRect = .zero
     
     private weak var customCancelButton: UIButton!
-    private weak var customChooseButton: UIButton!
-    private var zoomRect: CGRect = .zero
+    private weak var customChooseButton: UIButton!    
     private weak var overlayViewController: ImageCropperOverlayViewController?
     private  var configuration: ImageCropperConfiguration?
     
