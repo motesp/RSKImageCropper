@@ -14,7 +14,7 @@ import Vision
 class FaceDetector: NSObject {
 
     var completionHandler: (CGRect)->()
-    var image: UIImage!
+    var image: UIImage
     
     @objc init(image: UIImage, faceDetectedHandler:@escaping (CGRect)->()) {
         self.completionHandler = faceDetectedHandler

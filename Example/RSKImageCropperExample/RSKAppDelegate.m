@@ -32,8 +32,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UIViewController *sampleVC = [[RSKExampleViewController alloc] init];
-    //UIViewController *sampleVC = [[MPExampleViewController alloc] init];
+    //UIViewController *sampleVC = [[RSKExampleViewController alloc] init];
+    UIViewController *sampleVC = [[MPExampleViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:sampleVC];
     self.window.rootViewController = navController;
     
