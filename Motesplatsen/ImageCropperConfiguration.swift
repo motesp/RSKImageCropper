@@ -23,7 +23,7 @@ import UIKit
     public var approveButtonTitle: String?
     public var buttonsFont: UIFont?
     public var drawsOval: Bool = false
-    public var actionBeforeCroping: ((() -> Void) -> Void)?
+    public var actionBeforeCroping: ((@escaping () -> Void) -> Void)?
     public var buttonsPosition: ButtonsPosition = .top
     public var buttonsHorizontalOffset: CGFloat = 30
     public var buttonsVerticalOffset: CGFloat = 30

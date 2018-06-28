@@ -43,7 +43,7 @@ class MPExampleViewController: UIViewController {
     @objc private func showCropper() {
         let vc = ImageCropperViewController(image: UIImage(named: "photo")!, cropMode: .custom)
         vc.cropperDelegate = self
-        var configuration = ImageCropperConfiguration()
+        let configuration = ImageCropperConfiguration()
         configuration.title = "Flytta och skala"
         configuration.titleFont = UIFont.preferredFont(forTextStyle: .title1)        
         configuration.subtitleFont = UIFont.preferredFont(forTextStyle: .body)
