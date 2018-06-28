@@ -16,7 +16,7 @@ class ImageCropperOverlayHeadView: UIView{
     override func draw( _ rect: CGRect){
         
         if drawsOval, let context = UIGraphicsGetCurrentContext(){
-            let width = frame.size.width
+            let width: CGFloat = 2
             context.setLineWidth(width)
             context.setStrokeColor(UIColor.white.cgColor)
             context.setFillColor(UIColor.clear.cgColor)

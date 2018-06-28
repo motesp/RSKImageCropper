@@ -51,7 +51,8 @@ class MPExampleViewController: UIViewController {
         configuration.approveButtonTitle = "Approve"
         configuration.buttonsFont = UIFont.preferredFont(forTextStyle: .title3)
         configuration.buttonsPosition = .bottom
-        configuration.tutorialHidden = false        
+        configuration.tutorialHidden = false
+        configuration.drawsOval = true
         vc.setup(configuration: configuration)
         self.present(vc, animated: true)
     }
