@@ -51,9 +51,7 @@ class MPExampleViewController: UIViewController {
         configuration.approveButtonTitle = "Approve"
         configuration.buttonsFont = UIFont.preferredFont(forTextStyle: .title3)
         configuration.buttonsPosition = .bottom
-        configuration.actionBeforeCroping = { (croppingBlock) in
-            croppingBlock()
-        }
+        configuration.tutorialHidden = false        
         vc.setup(configuration: configuration)
         self.present(vc, animated: true)
     }

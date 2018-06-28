@@ -36,7 +36,8 @@ public class ImageCropperViewController: RSKImageCropViewController{
         self.alwaysBounceHorizontal = true
         
         // overlay
-        let overlayViewController = ImageCropperOverlayViewController(nibName: "ImageCropperOverlay", bundle: nil)
+        let bundle = Bundle(for: ImageCropperOverlayViewController.self)
+        let overlayViewController = ImageCropperOverlayViewController(nibName: "ImageCropperOverlay", bundle: bundle)
         self.addChildViewController(overlayViewController)
         if let overlayView = overlayViewController.view {
             self.view.addSubview(overlayView)
@@ -99,9 +100,13 @@ public class ImageCropperViewController: RSKImageCropViewController{
     }
     
     @objc private func customChooseButtonPressed(){
-        self.configuration?.actionBeforeCroping?({ [weak self] in
-            self?.cropImage()
-        })
+        if self.configuration?.actionBeforeCroping != nil {
+            self.configuration?.actionBeforeCroping?({ [weak self] in
+                self?.cropImage()
+            })
+        }else {
+            self.cropImage()
+        }
     }
     
     override public func viewDidLoad() {
