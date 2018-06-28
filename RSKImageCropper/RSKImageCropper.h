@@ -27,6 +27,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 //! Project version number for RSKImageCropper.
 FOUNDATION_EXPORT double RSKImageCropperVersionNumber;
