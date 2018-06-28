@@ -22,12 +22,22 @@ class ImageCropperOverlayViewController: UIViewController {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var tutorialStackView: UIStackView!
+    @IBOutlet weak var rectangleLeading: NSLayoutConstraint!
+    @IBOutlet weak var rectangleTrailing: NSLayoutConstraint!
+    
+    
     
     
     func setup(configuration: ImageCropperConfiguration){
+        
+        self.rectangleLeading.constant = configuration.rectangleHorizontalOffset
+        self.rectangleTrailing.constant = configuration.rectangleHorizontalOffset
+        self.rectangleView.widthAnchor.constraint(
+            equalTo: self.rectangleView.heightAnchor,
+            multiplier: configuration.rectangleWidthToHeightRatio).isActive = true
+        
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
-        
         
         self.view.backgroundColor = UIColor.clear
         self.rectangleView.backgroundColor = UIColor.clear
