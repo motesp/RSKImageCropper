@@ -16,19 +16,20 @@ import UIKit
 
 @objc public class ImageCropperConfiguration: NSObject {
     public var title: String?
-    public var subtitle: String?
     public var titleFont: UIFont?
+    public var titleTop: CGFloat = 27
+    public var subtitle: String?
     public var subtitleFont: UIFont?
     public var cancelButtonTitle: String?
     public var approveButtonTitle: String?
     public var buttonsFont: UIFont?
-    public var drawsOval: Bool = false
-    public var actionBeforeCroping: ((@escaping () -> Void) -> Void)?
     public var buttonsPosition: ButtonsPosition = .top
     public var buttonsHorizontalOffset: CGFloat = 30
     public var buttonsVerticalOffset: CGFloat = 30
     public var rectangleHorizontalOffset: CGFloat = 30
     public var rectangleWidthToHeightRatio: CGFloat = 1
+    public var drawsOval: Bool = false
+    public var actionBeforeCroping: ((@escaping () -> Void) -> Void)?
     public var tutorialHidden = true
     
 }

@@ -15,10 +15,6 @@ public protocol ImageCropperViewControllerDelegate: class{
 
 public class ImageCropperViewController: RSKImageCropViewController{
     
-    deinit {
-        
-    }
-    
     public weak var cropperDelegate: ImageCropperViewControllerDelegate?
     public var zoomRect: CGRect = .zero
     
@@ -42,9 +38,9 @@ public class ImageCropperViewController: RSKImageCropViewController{
         if let overlayView = overlayViewController.view {
             self.view.addSubview(overlayView)
             let rightConstraint = overlayView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-            rightConstraint.priority = .defaultHigh
+            //rightConstraint.priority = .defaultHigh
             let bottomConstraint = overlayView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-            bottomConstraint.priority = .defaultHigh
+            //bottomConstraint.priority = .defaultHigh
             NSLayoutConstraint.activate([
                 overlayView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
                 overlayView.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -55,6 +51,8 @@ public class ImageCropperViewController: RSKImageCropViewController{
         overlayViewController.setup(configuration: configuration)
         self.overlayViewController = overlayViewController
         
+        let maxButtonHeight: CGFloat = 35
+        
         // cancel button
         let cancelBtn = UIButton()
         cancelBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -62,9 +60,17 @@ public class ImageCropperViewController: RSKImageCropViewController{
         cancelBtn.setTitle(configuration.cancelButtonTitle, for: .normal)
         cancelBtn.setTitleColor(UIColor.white, for: .normal)
         cancelBtn.titleLabel?.font = configuration.buttonsFont
+        cancelBtn.titleLabel?.numberOfLines = 0
+        cancelBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        cancelBtn.titleLabel?.minimumScaleFactor = 0.5
+        cancelBtn.titleLabel?.sizeToFit()
         self.view.addSubview(cancelBtn)
         NSLayoutConstraint.activate([
-            cancelBtn.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: configuration.buttonsHorizontalOffset)
+            cancelBtn.leftAnchor.constraint(equalTo: self.view.leftAnchor,
+                                            constant: configuration.buttonsHorizontalOffset),
+            cancelBtn.rightAnchor.constraint(lessThanOrEqualTo: self.view.centerXAnchor, constant: -10),
+            cancelBtn.heightAnchor.constraint(lessThanOrEqualToConstant: maxButtonHeight),
+            cancelBtn.titleLabel!.heightAnchor.constraint(lessThanOrEqualToConstant: maxButtonHeight)
         ])
         self.customCancelButton = cancelBtn
         
@@ -75,22 +81,38 @@ public class ImageCropperViewController: RSKImageCropViewController{
         chooseBtn.setTitle(configuration.approveButtonTitle, for: .normal)
         chooseBtn.setTitleColor(UIColor.white, for: .normal)
         chooseBtn.titleLabel?.font = configuration.buttonsFont
+        chooseBtn.contentHorizontalAlignment = .right
+        chooseBtn.titleLabel?.numberOfLines = 0
+        chooseBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        chooseBtn.titleLabel?.minimumScaleFactor = 0.5
         self.view.addSubview(chooseBtn)
         NSLayoutConstraint.activate([
-            chooseBtn.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -configuration.buttonsHorizontalOffset)
+            chooseBtn.rightAnchor.constraint(equalTo: self.view.rightAnchor,
+                                             constant: -configuration.buttonsHorizontalOffset),
+            chooseBtn.leftAnchor.constraint(greaterThanOrEqualTo: self.view.centerXAnchor, constant: 10),
+            chooseBtn.topAnchor.constraint(equalTo: cancelBtn.topAnchor),
+            chooseBtn.heightAnchor.constraint(lessThanOrEqualToConstant: maxButtonHeight),
+            chooseBtn.titleLabel!.heightAnchor.constraint(lessThanOrEqualToConstant: maxButtonHeight)
         ])
         self.customChooseButton = chooseBtn
         
         // layout buttons according to position
         if configuration.buttonsPosition == .top {
             NSLayoutConstraint.activate([
-                cancelBtn.topAnchor.constraint(equalTo: self.view.topAnchor, constant: configuration.buttonsVerticalOffset),
-                chooseBtn.topAnchor.constraint(equalTo: self.view.topAnchor, constant: configuration.buttonsVerticalOffset)
+                cancelBtn.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor,
+                                               constant: configuration.buttonsVerticalOffset),
+                chooseBtn.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor,
+                                               constant: configuration.buttonsVerticalOffset)
             ])
         }else{
             NSLayoutConstraint.activate([
-                cancelBtn.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -configuration.buttonsVerticalOffset),
-                chooseBtn.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -configuration.buttonsVerticalOffset)
+                cancelBtn.bottomAnchor.constraint(
+                    greaterThanOrEqualTo: self.view.bottomAnchor,
+                    constant: -configuration.buttonsVerticalOffset),
+                chooseBtn.bottomAnchor.constraint(
+                    greaterThanOrEqualTo: self.view.bottomAnchor,
+                    constant: -configuration.buttonsVerticalOffset),
+                cancelBtn.topAnchor.constraint(greaterThanOrEqualTo: overlayViewController.tutorialStackView.bottomAnchor)
             ])
         }
     }

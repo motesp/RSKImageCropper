@@ -43,18 +43,42 @@ class MPExampleViewController: UIViewController {
     @objc private func showCropper() {
         let vc = ImageCropperViewController(image: UIImage(named: "photo")!, cropMode: .custom)
         vc.cropperDelegate = self
+        vc.setup(configuration: configurationForGoodones())
+        //vc.setup(configuration: configurationForMp())
+        self.present(vc, animated: true)
+    }
+    
+    private func configurationForGoodones() -> ImageCropperConfiguration {
         let configuration = ImageCropperConfiguration()
         configuration.title = "Flytta och skala"
-        configuration.titleFont = UIFont.preferredFont(forTextStyle: .title1)        
+        configuration.titleFont = UIFont.preferredFont(forTextStyle: .title1)
         configuration.subtitleFont = UIFont.preferredFont(forTextStyle: .body)
         configuration.cancelButtonTitle = "Cancel"
         configuration.approveButtonTitle = "Approve"
         configuration.buttonsFont = UIFont.preferredFont(forTextStyle: .title3)
         configuration.buttonsPosition = .bottom
         configuration.tutorialHidden = false
+        configuration.drawsOval = false
+        configuration.rectangleWidthToHeightRatio = 315/408
+        return configuration
+    }
+    
+    private func configurationForMp() -> ImageCropperConfiguration {
+        let configuration = ImageCropperConfiguration()
+        configuration.title = "Passa in ditt ansikte i cirkeln"
+        configuration.titleFont = UIFont.preferredFont(forTextStyle: .title2)
+        configuration.titleTop = 59
+        configuration.subtitle = "Nyp med två fingrar för att zooma.\nDra i bilden med ett finger för att flytta."
+        configuration.subtitleFont = UIFont.preferredFont(forTextStyle: .subheadline)
+        configuration.cancelButtonTitle = "Avbryt"
+        configuration.approveButtonTitle = "Spara"
+        configuration.buttonsFont = UIFont.preferredFont(forTextStyle: .body)
+        configuration.buttonsHorizontalOffset = 8
+        configuration.buttonsVerticalOffset = 10
+        configuration.rectangleWidthToHeightRatio = 255.0/339.0
+        configuration.rectangleHorizontalOffset = 33.0
         configuration.drawsOval = true
-        vc.setup(configuration: configuration)
-        self.present(vc, animated: true)
+        return configuration
     }
 }
 

@@ -24,12 +24,15 @@ class ImageCropperOverlayViewController: UIViewController {
     @IBOutlet weak var tutorialStackView: UIStackView!
     @IBOutlet weak var rectangleLeading: NSLayoutConstraint!
     @IBOutlet weak var rectangleTrailing: NSLayoutConstraint!
-    
-    
-    
+    @IBOutlet weak var titleTop: NSLayoutConstraint!
+    @IBOutlet weak var titleToSubtitleSpacing: NSLayoutConstraint!
     
     func setup(configuration: ImageCropperConfiguration){
-        
+
+        self.titleTop.constant = configuration.titleTop
+        if configuration.subtitle == nil {
+            self.titleToSubtitleSpacing.constant = 0
+        }
         self.rectangleLeading.constant = configuration.rectangleHorizontalOffset
         self.rectangleTrailing.constant = configuration.rectangleHorizontalOffset
         self.rectangleView.widthAnchor.constraint(
@@ -49,7 +52,7 @@ class ImageCropperOverlayViewController: UIViewController {
         self.view.backgroundColor = UIColor.clear
         
         self.topLabel.text = configuration.title
-        self.topLabel.font = configuration.titleFont
+        self.topLabel.font = configuration.titleFont        
         self.bottomLabel.text = configuration.subtitle
         self.bottomLabel.font = configuration.subtitleFont
         self.bottomLabel.alpha = 0.6
