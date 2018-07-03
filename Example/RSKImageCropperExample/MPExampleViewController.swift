@@ -49,17 +49,18 @@ class MPExampleViewController: UIViewController {
     }
     
     private func configurationForGoodones() -> ImageCropperConfiguration {
-        let configuration = ImageCropperConfiguration()
-        configuration.title = "Flytta och skala"
+        let configuration = ImageCropperConfiguration()        
         configuration.titleFont = UIFont.preferredFont(forTextStyle: .title1)
         configuration.subtitleFont = UIFont.preferredFont(forTextStyle: .body)
+        configuration.rectangleHorizontalOffset = 35
+        configuration.buttonsHorizontalOffset = 35
         configuration.cancelButtonTitle = "Cancel"
         configuration.approveButtonTitle = "Approve"
         configuration.buttonsFont = UIFont.preferredFont(forTextStyle: .title3)
         configuration.buttonsPosition = .bottom
         configuration.tutorialHidden = false
         configuration.drawsOval = false
-        configuration.rectangleWidthToHeightRatio = 315/408
+        configuration.rectangleWidthToHeightRatio = 1060/2000
         return configuration
     }
     

@@ -22,17 +22,33 @@ class ImageCropperOverlayViewController: UIViewController {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var tutorialStackView: UIStackView!
+    @IBOutlet weak var tutorialContainer: UIView!
+    @IBOutlet weak var tutorialBackground: UIView!
     @IBOutlet weak var rectangleLeading: NSLayoutConstraint!
     @IBOutlet weak var rectangleTrailing: NSLayoutConstraint!
-    @IBOutlet weak var titleTop: NSLayoutConstraint!
-    @IBOutlet weak var titleToSubtitleSpacing: NSLayoutConstraint!
     
     func setup(configuration: ImageCropperConfiguration){
 
-        self.titleTop.constant = configuration.titleTop
-        if configuration.subtitle == nil {
-            self.titleToSubtitleSpacing.constant = 0
+        var viewAboveRectangle: UIView?
+        
+        let marginsGuide = view.layoutMarginsGuide
+        
+        if configuration.title != nil {
+            topLabel.topAnchor.constraint(equalTo: marginsGuide.topAnchor, constant: configuration.titleTop).isActive = true
+            viewAboveRectangle = topLabel
         }
+        
+        if configuration.subtitle != nil {
+            bottomLabel.topAnchor.constraint(equalTo: topLabel.firstBaselineAnchor, constant: 10).isActive = true
+            viewAboveRectangle = bottomLabel
+        }
+        
+        if let viewAboveRectangle = viewAboveRectangle {
+            rectangleView.topAnchor.constraint(equalTo: viewAboveRectangle.bottomAnchor, constant: 20).isActive = true
+        } else {
+            rectangleView.topAnchor.constraint(equalTo: marginsGuide.topAnchor, constant: 10).isActive = true
+        }
+        
         self.rectangleLeading.constant = configuration.rectangleHorizontalOffset
         self.rectangleTrailing.constant = configuration.rectangleHorizontalOffset
         self.rectangleView.widthAnchor.constraint(
@@ -57,14 +73,16 @@ class ImageCropperOverlayViewController: UIViewController {
         self.bottomLabel.font = configuration.subtitleFont
         self.bottomLabel.alpha = 0.6
         
-        self.tutorialStackView.isHidden = configuration.tutorialHidden
+        self.tutorialBackground.alpha = 0.7
+        self.tutorialBackground.layer.cornerRadius = 8
+        self.tutorialContainer.isHidden = configuration.tutorialHidden
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.translatesAutoresizingMaskIntoConstraints = false
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -102,5 +120,10 @@ class ImageCropperOverlayViewController: UIViewController {
         
         visualView.mask = maskView
     }
-
+    
+    func animateHidingTutorial() {
+        UIView.animate(withDuration: 1) {
+            self.tutorialContainer.alpha = 0
+        }
+    }
 }

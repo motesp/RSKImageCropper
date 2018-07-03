@@ -22,6 +22,8 @@ public class ImageCropperViewController: RSKImageCropViewController{
     private weak var customChooseButton: UIButton!    
     private weak var overlayViewController: ImageCropperOverlayViewController?
     private  var configuration: ImageCropperConfiguration?
+    private var panRecognizer: UIGestureRecognizer?
+    private var pinchRecognizer: UIGestureRecognizer?
     
     @objc public func setup(configuration: ImageCropperConfiguration){
         self.configuration = configuration
@@ -36,16 +38,12 @@ public class ImageCropperViewController: RSKImageCropViewController{
         let overlayViewController = ImageCropperOverlayViewController(nibName: "ImageCropperOverlay", bundle: bundle)
         self.addChildViewController(overlayViewController)
         if let overlayView = overlayViewController.view {
-            self.view.addSubview(overlayView)
-            let rightConstraint = overlayView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-            //rightConstraint.priority = .defaultHigh
-            let bottomConstraint = overlayView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-            //bottomConstraint.priority = .defaultHigh
+            self.view.addSubview(overlayView)            
             NSLayoutConstraint.activate([
                 overlayView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
                 overlayView.topAnchor.constraint(equalTo: self.view.topAnchor),
-                rightConstraint,
-                bottomConstraint
+                overlayView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+                overlayView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
             ])
         }
         overlayViewController.setup(configuration: configuration)
@@ -63,11 +61,11 @@ public class ImageCropperViewController: RSKImageCropViewController{
         cancelBtn.titleLabel?.numberOfLines = 0
         cancelBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         cancelBtn.titleLabel?.minimumScaleFactor = 0.5
+        cancelBtn.contentHorizontalAlignment = .left
         cancelBtn.titleLabel?.sizeToFit()
         self.view.addSubview(cancelBtn)
         NSLayoutConstraint.activate([
-            cancelBtn.leftAnchor.constraint(equalTo: self.view.leftAnchor,
-                                            constant: configuration.buttonsHorizontalOffset),
+            cancelBtn.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: configuration.buttonsHorizontalOffset),
             cancelBtn.rightAnchor.constraint(lessThanOrEqualTo: self.view.centerXAnchor, constant: -10),
             cancelBtn.heightAnchor.constraint(lessThanOrEqualToConstant: maxButtonHeight),
             cancelBtn.titleLabel!.heightAnchor.constraint(lessThanOrEqualToConstant: maxButtonHeight)
@@ -87,8 +85,7 @@ public class ImageCropperViewController: RSKImageCropViewController{
         chooseBtn.titleLabel?.minimumScaleFactor = 0.5
         self.view.addSubview(chooseBtn)
         NSLayoutConstraint.activate([
-            chooseBtn.rightAnchor.constraint(equalTo: self.view.rightAnchor,
-                                             constant: -configuration.buttonsHorizontalOffset),
+            chooseBtn.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -configuration.buttonsHorizontalOffset),
             chooseBtn.leftAnchor.constraint(greaterThanOrEqualTo: self.view.centerXAnchor, constant: 10),
             chooseBtn.topAnchor.constraint(equalTo: cancelBtn.topAnchor),
             chooseBtn.heightAnchor.constraint(lessThanOrEqualToConstant: maxButtonHeight),
@@ -99,21 +96,18 @@ public class ImageCropperViewController: RSKImageCropViewController{
         // layout buttons according to position
         if configuration.buttonsPosition == .top {
             NSLayoutConstraint.activate([
-                cancelBtn.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor,
-                                               constant: configuration.buttonsVerticalOffset),
-                chooseBtn.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor,
-                                               constant: configuration.buttonsVerticalOffset)
+                cancelBtn.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor, constant: configuration.buttonsVerticalOffset),
+                chooseBtn.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor, constant: configuration.buttonsVerticalOffset)
             ])
         }else{
             NSLayoutConstraint.activate([
-                cancelBtn.bottomAnchor.constraint(
-                    greaterThanOrEqualTo: self.view.bottomAnchor,
-                    constant: -configuration.buttonsVerticalOffset),
-                chooseBtn.bottomAnchor.constraint(
-                    greaterThanOrEqualTo: self.view.bottomAnchor,
-                    constant: -configuration.buttonsVerticalOffset),
-                cancelBtn.topAnchor.constraint(greaterThanOrEqualTo: overlayViewController.tutorialStackView.bottomAnchor)
+                cancelBtn.bottomAnchor.constraint(greaterThanOrEqualTo: self.view.bottomAnchor, constant: -configuration.buttonsVerticalOffset),
+                chooseBtn.bottomAnchor.constraint(greaterThanOrEqualTo: self.view.bottomAnchor,constant: -configuration.buttonsVerticalOffset),
             ])
+        }
+ 
+        if !configuration.tutorialHidden {
+            addGestureRecognizersForHidingTutorial()
         }
     }
     
@@ -138,6 +132,31 @@ public class ImageCropperViewController: RSKImageCropViewController{
         self.clearControlsThatWeDontWantTo()
     }
     
+    
+    private func addGestureRecognizersForHidingTutorial(){
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(onTouch))
+        pan.delegate = self
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(onTouch))
+        pinch.delegate = self
+        self.view.addGestureRecognizer(pan)
+        self.view.addGestureRecognizer(pinch)
+    }
+    
+    @objc private func onTouch() {
+    
+    }
+    
+    private func removeGestureRecognizersForHidingTutorial(){
+        if let panGR = panRecognizer {
+            self.view.removeGestureRecognizer(panGR)
+            self.panRecognizer = nil
+        }
+        if let pinchGR = pinchRecognizer {
+            self.view.removeGestureRecognizer(pinchGR)
+            self.pinchRecognizer = nil
+        }
+    }
+    
     private func clearControlsThatWeDontWantTo(){
         self.moveAndScaleLabel.text = ""
         self.cancelButton.isUserInteractionEnabled = false
@@ -148,6 +167,10 @@ public class ImageCropperViewController: RSKImageCropViewController{
     
     override public var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         return .portrait
+    }
+    
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
     }
 }
 
@@ -216,5 +239,21 @@ extension ImageCropperViewController: RSKImageCropViewControllerDataSource{
     
     public func imageCropViewControllerCustomMovementRect(_ controller: RSKImageCropViewController) -> CGRect {
         return controller.maskRect
+    }
+}
+
+extension ImageCropperViewController: UIGestureRecognizerDelegate {
+    
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        let location = touch.location(in: self.view)
+        if let rectangeView = self.overlayViewController?.rectangleView {
+            let insideRectangle = rectangeView.frame.contains(location)
+            if insideRectangle {
+                self.overlayViewController?.animateHidingTutorial()
+                self.removeGestureRecognizersForHidingTutorial()
+            }
+            return insideRectangle
+        }
+        return false
     }
 }
