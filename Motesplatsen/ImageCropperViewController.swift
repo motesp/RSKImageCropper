@@ -17,6 +17,7 @@ public class ImageCropperViewController: RSKImageCropViewController{
     
     public weak var cropperDelegate: ImageCropperViewControllerDelegate?
     public var zoomRect: CGRect = .zero
+    public var onCroppingCompleted: ((UIImage) -> Void)?
     
     private weak var customCancelButton: UIButton!
     private weak var customChooseButton: UIButton!    
@@ -168,10 +169,6 @@ public class ImageCropperViewController: RSKImageCropViewController{
     override public var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         return .portrait
     }
-    
-    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-    }
 }
 
 extension ImageCropperViewController: RSKImageCropViewControllerDelegate{
@@ -203,6 +200,7 @@ extension ImageCropperViewController: RSKImageCropViewControllerDelegate{
         
         if let correctedCGImage = croppedImage.cgImage?.cropping(to: bounds){
             let correctedImage = UIImage(cgImage: correctedCGImage)
+            self.onCroppingCompleted?(correctedImage)
             self.cropperDelegate?.didComplete(image: correctedImage)
         }
         controller.dismiss(animated: true) {}

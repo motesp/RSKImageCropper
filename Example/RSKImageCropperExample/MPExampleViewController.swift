@@ -42,7 +42,9 @@ class MPExampleViewController: UIViewController {
     
     @objc private func showCropper() {
         let vc = ImageCropperViewController(image: UIImage(named: "photo")!, cropMode: .custom)
-        vc.cropperDelegate = self
+        vc.onCroppingCompleted = { (image) in
+            self.imageView?.image = image
+        }
         vc.setup(configuration: configurationForGoodones())
         //vc.setup(configuration: configurationForMp())
         self.present(vc, animated: true)
@@ -82,12 +84,3 @@ class MPExampleViewController: UIViewController {
         return configuration
     }
 }
-
-extension MPExampleViewController: ImageCropperViewControllerDelegate {
-    
-    func didComplete(image: UIImage) {
-        self.imageView.image = image
-    }
-}
-
-
