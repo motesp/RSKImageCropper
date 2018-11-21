@@ -873,7 +873,7 @@ describe(@"rotation", ^{
         
         UIRotationGestureRecognizer *rotationGestureRecognizer = [[UIRotationGestureRecognizer alloc] init];
         mockRotationGestureRecognizer = [OCMockObject partialMockForObject:rotationGestureRecognizer];
-        [[[mockRotationGestureRecognizer stub] andReturnValue:@(testRotationAngle)] rotation];
+        [(UIRotationGestureRecognizer*)[[mockRotationGestureRecognizer stub] andReturnValue:@(testRotationAngle)] rotation];
         [[[mockRotationGestureRecognizer stub] andReturnValue:@(UIGestureRecognizerStateEnded)] state];
     });
     

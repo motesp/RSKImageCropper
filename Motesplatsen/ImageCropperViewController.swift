@@ -102,8 +102,8 @@ public class ImageCropperViewController: RSKImageCropViewController{
             ])
         }else{
             NSLayoutConstraint.activate([
-                cancelBtn.bottomAnchor.constraint(greaterThanOrEqualTo: self.view.bottomAnchor, constant: -configuration.buttonsVerticalOffset),
-                chooseBtn.bottomAnchor.constraint(greaterThanOrEqualTo: self.view.bottomAnchor,constant: -configuration.buttonsVerticalOffset),
+                cancelBtn.bottomAnchor.constraint(greaterThanOrEqualTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -configuration.buttonsVerticalOffset),
+                chooseBtn.bottomAnchor.constraint(greaterThanOrEqualTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -configuration.buttonsVerticalOffset),
             ])
         }
  
