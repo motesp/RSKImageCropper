@@ -37,7 +37,7 @@ public class ImageCropperViewController: RSKImageCropViewController{
         // overlay
         let bundle = Bundle(for: ImageCropperOverlayViewController.self)
         let overlayViewController = ImageCropperOverlayViewController(nibName: "ImageCropperOverlay", bundle: bundle)
-        self.addChildViewController(overlayViewController)
+        self.addChild(overlayViewController)
         if let overlayView = overlayViewController.view {
             self.view.addSubview(overlayView)            
             NSLayoutConstraint.activate([

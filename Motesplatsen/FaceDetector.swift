@@ -63,7 +63,7 @@ public class FaceDetector: NSObject {
 }
 
 extension CGImagePropertyOrientation {
-    fileprivate init(_ uiOrientation: UIImageOrientation) {
+    fileprivate init(_ uiOrientation: UIImage.Orientation) {
         switch uiOrientation {
         case .up: self = .up
         case .upMirrored: self = .upMirrored

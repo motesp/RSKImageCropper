@@ -113,7 +113,7 @@ class ImageCropperOverlayViewController: UIViewController {
         outerbezierPath.usesEvenOddFillRule = true
         
         let fillLayer = CAShapeLayer()
-        fillLayer.fillRule = kCAFillRuleEvenOdd
+        fillLayer.fillRule = CAShapeLayerFillRule.evenOdd
         fillLayer.fillColor = UIColor.black.cgColor // any opaque color would work
         fillLayer.path = outerbezierPath.cgPath
         maskView.layer.addSublayer(fillLayer)
